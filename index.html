@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adega Gelo&Gole</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><img src="logo-removebg-preview.png" alt=""></h1>
+            <nav class="nav-desktop">
+                <a href="#" class="nav-item">Início</a>
+                <a href="#search-filter-container" class="nav-item">Categorias</a>
+                <a href="#" class="nav-item">Promoções</a>
+                <a href="#" id="cart-toggle-button" class="nav-item cart-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span>Sacola</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-menu">
+        <button class="close-btn">&times;</button>
+        <a href="#" class="nav-item">Início</a>
+        <a href="#produto" class="nav-item">Categorias</a>
+        <a href="#" class="nav-item">Promoções</a>
+        <a href="#" id="mobile-cart-button" class="nav-item mobile-cart-btn-styled">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span>Sacola</span>
+        </a>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <section class="offer-carousel-container">
+                <h2>Ofertas do Dia</h2>
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="offer-card carousel-item active">
+                            <img src="red_label.jpg" alt="Oferta de Whisky Red Label" class="offer-img">
+                            <div class="offer-info">
+                                <h3>Red Label - 1 Litro</h3>
+                                <p class="offer-price">De <del>R$ 109,99</del> por <strong>R$ 94,99</strong></p>
+                                <button class="btn btn-primary add-to-cart-btn" data-nome-produto="Red Label - 1 Litro (Oferta)" data-preco-produto="94.99">Comprar Agora</button>
+                            </div>
+                        </div>
+                        <div class="offer-card carousel-item">
+                            <img src="https://via.placeholder.com/600x400/007AFF/fff?text=Combo+Gin+e+Energético" alt="Oferta de Combo Gin" class="offer-img">
+                            <div class="offer-info">
+                                <h3>Combo Gin Tanqueray + 4 Red Bull</h3>
+                                <p class="offer-price">De <del>R$ 149,90</del> por <strong>R$ 129,90</strong></p>
+                                <button class="btn btn-primary add-to-cart-btn" data-nome-produto="Combo Gin Tanqueray (Oferta)" data-preco-produto="129.90">Comprar Agora</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="carousel-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="products-section">
+                <h2>Nossos Produtos</h2>
+
+                <section class="search-filter-container">
+                    <input type="search" id="search-bar" class="search-bar" placeholder="Buscar pelo nome do produto...">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="todos">Todos</button>
+                        <button class="filter-btn" data-filter="whisky">Whiskys</button>
+                        <button class="filter-btn" data-filter="gin">Gin</button>
+                        <button class="filter-btn" data-filter="cerveja">Cervejas</button>
+                        <button class="filter-btn" data-filter="energetico">Energéticos</button>
+                        <button class="filter-btn" data-filter="refrigerante">Refrigerantes</button>
+                        <button class="filter-btn" data-filter="gelo">Gelos</button>
+                    </div>
+                </section>
+
+                <div class="product-grid" id="product-grid">
+                    <div class="product-card" data-category="whisky">
+                        <img src="jackdaniels.png" alt="Whisky Jack Daniels" class="product-img">
+                        <h3 class="product-name">Whisky Jack Daniels</h3>
+                        <p class="product-price">R$ 139,90</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Whisky Jack Daniels" data-preco-produto="139.90">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="gin">
+                        <img src="ginbeefeater.jpg" alt="Gin Beefeater" class="product-img">
+                        <h3 class="product-name">Gin Beefeater Pink</h3>
+                        <p class="product-price">R$ 119,90</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gin Beefeater Pink" data-preco-produto="119.90">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="cerveja">
+                        <img src="heineken.jpg" alt="Cerveja Heineken 330ml" class="product-img">
+                        <h3 class="product-name">Cerveja Heineken 330ml (Long Neck)</h3>
+                        <p class="product-price">R$ 12,99</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Cerveja Heineken 330ml" data-preco-produto="12.99">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="energetico">
+                        <img src="monsterenergy.jpg" alt="Energético Monster" class="product-img">
+                        <h3 class="product-name">Energético Monster 473ml</h3>
+                        <p class="product-price">R$ 8,90</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Energético Monster" data-preco-produto="8.90">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="refrigerante">
+                        <img src="cocacola2l.png" alt="Refrigerante Cola" class="product-img">
+                        <h3 class="product-name">Coca-Cola 2 Litros</h3>
+                        <p class="product-price">R$ 9,90</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Coca-Cola 2 Litros" data-preco-produto="9.90">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="gelo">
+                        <img src="https://via.placeholder.com/300" alt="Gelo de Coco" class="product-img">
+                        <h3 class="product-name">Gelo Saborizado de Coco</h3>
+                        <p class="product-price">R$ 12,00</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo Saborizado de Coco" data-preco-produto="12.00">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="gelo">
+                        <img src="https://via.placeholder.com/300" alt="Gelo em Cubo" class="product-img">
+                        <h3 class="product-name">Gelo em Cubo 5kg</h3>
+                        <p class="product-price">R$ 10,00</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo em Cubo 5kg" data-preco-produto="10.00">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Adega Gelo&Gole. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close-button">&times;</span>
+            <h2>Sua Sacola</h2>
+            <div id="cart-items">
+                <p>Sua sacola está vazia.</p>
+            </div>
+            <div class="modal-footer">
+                <p>Total: R$ <span id="cart-total">0.00</span></p>
+                <button id="checkout-btn" class="btn btn-primary">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+    <script src="mains.js"></script>
+    <script src="carrossel.js"></script>
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+    --bg-dark-primary: #121212;
+    --bg-dark-secondary: #1E1E1E;
+    --bg-dark-tertiary: #2C2C2E;
+    --text-primary: #F5F5F7;
+    --text-secondary: #A1A1A6;
+    --accent-blue: #0A84FF;
+    --accent-blue-hover: #007AFF;
+    --border-color: #3A3A3C;
+    --font-family-headings: 'Poppins', sans-serif;
+    --font-family-body: 'Lato', sans-serif;
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 20px rgba(10, 132, 255, 0.3);
+    --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- Reset e Configurações Globais --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--bg-dark-primary);
+    background-image: radial-gradient(circle at 1% 1%, var(--bg-dark-tertiary) 0%, var(--bg-dark-primary) 35%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Acessibilidade: Estilo de Foco Visível --- */
+:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* --- Estilos de Texto --- */
+h1, h2, h3 {
+    font-family: var(--font-family-headings);
+    font-weight: 700;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+
+/* --- Header e Navegação --- */
+.header {
+    background-color: rgba(28, 28, 30, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-smooth);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 65px;
+    width: auto;
+    transition: transform var(--transition-smooth);
+}
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-item {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 700;
+    transition: color var(--transition-smooth);
+    padding-bottom: 5px;
+}
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-blue);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-smooth);
+}
+.nav-item:hover, .nav-item:focus {
+    color: var(--text-primary);
+}
+.nav-item:hover::after, .nav-item:focus::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* --- Carrossel --- */
+.offer-carousel-container {
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carousel-item {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2.5rem;
+    background-color: var(--bg-dark-secondary);
+}
+
+.offer-img {
+    width: 50%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-right: 2rem;
+}
+
+.offer-info {
+    padding: 2rem;
+    text-align: left;
+}
+
+.offer-info h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.offer-price {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.offer-price strong {
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.indicator.active {
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+    transform: scale(1.2);
+}
+
+/* --- Busca e Filtros --- */
+.search-filter-container {
+    margin: 3rem auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-dark-secondary);
+    color: var(--text-primary);
+    transition: all var(--transition-smooth);
+}
+.search-bar:focus {
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow-glow);
+    outline: none;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-secondary);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all var(--transition-smooth);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(10, 132, 255, 0.2);
+}
+
+
+/* --- Produtos --- */
+.products-section {
+    padding-bottom: 5rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+}
+
+.product-card {
+    background: var(--bg-dark-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--accent-blue);
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    flex-grow: 1; /* Garante que o botão fique alinhado na base */
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Botões --- */
+.btn {
+    padding: 0.9rem 1.6rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-family-body);
+    transition: all var(--transition-smooth);
+}
+.btn:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: var(--text-primary);
+}
+.btn-primary:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+.btn-secondary {
+    background-color: var(--bg-dark-tertiary);
+    color: var(--text-secondary);
+    width: 100%;
+}
+.btn-secondary:hover {
+    background-color: #4A4A4C;
+    color: var(--text-primary);
+    box-shadow: none; /* Sombra já está no card */
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #000;
+    color: #8E8E93;
+    text-align: center;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Menu Mobile --- */
+.menu-toggle, .mobile-menu .close-btn {
+    display: none;
+}
+
+.mobile-menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100%;
+    background-color: var(--bg-dark-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 3000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: right 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu .nav-item {
+    font-size: 1.5rem;
+}
+
+/* --- Estilos do Carrinho (Modal) --- */
+.cart-button {
+    background-color: var(--accent-blue);
+    color: var(--text-primary) !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all var(--transition-smooth);
+}
+.cart-button:hover {
+    background-color: var(--accent-blue-hover);
+    color: var(--text-primary) !important;
+    transform: scale(1.05);
+}
+.cart-button::after { /* Remove o sublinhado do nav-item */
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--bg-dark-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    animation: slide-down 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    color: var(--text-secondary);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    cursor: pointer;
+    transition: color var(--transition-smooth), transform var(--transition-smooth);
+}
+.close-button:hover {
+    color: var(--text-primary);
+    transform: rotate(90deg);
+}
+
+#cart-items {
+    max-height: 350px;
+    overflow-y: auto;
+    margin: 1.5rem 0;
+    padding-right: 1rem; /* Espaço para a barra de rolagem */
+}
+
+/* Custom Scrollbar */
+#cart-items::-webkit-scrollbar { width: 8px; }
+#cart-items::-webkit-scrollbar-track { background: var(--bg-dark-tertiary); border-radius: 4px; }
+#cart-items::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+#cart-items::-webkit-scrollbar-thumb:hover { background: #555; }
+
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.remove-item-btn {
+    background: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-smooth), transform var(--transition-smooth);
+}
+.remove-item-btn:hover {
+    background-color: #c70000;
+    transform: scale(1.1);
+}
+
+.modal-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.modal-footer p {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 4000;
+        padding: 0; /* Remove padding para alinhamento */
+    }
+
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: var(--text-primary);
+        border-radius: 2px;
+    }
+
+    .mobile-menu .close-btn {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+        color: var(--text-primary);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .logo img {
+        max-height: 55px;
+    }
+
+    /* Ajuste crucial para o carrossel em telas pequenas */
+    .carousel-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .offer-img {
+        width: 80%;
+        max-width: 250px;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .offer-info {
+        padding: 0;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* --- Estilo Aprimorado para o Botão de Sacola Mobile --- */
+.mobile-menu .mobile-cart-btn-styled {
+    background-color: var(--accent-blue);
+    color: var(--text-primary);
+    padding: 0.8rem 2rem;
+    border-radius: 50px; /* Bordas totalmente arredondadas */
+    width: 80%;
+    max-width: 220px;
+    text-align: center;
+    margin-top: 1.5rem; /* Adiciona um espaço acima, separando dos outros links */
+    
+    /* Alinha o ícone e o texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* Espaço entre o ícone e o texto */
+    transition: all var(--transition-smooth);
+}
+
+.mobile-menu .mobile-cart-btn-styled:hover {
+    background-color: var(--accent-blue-hover);
+    transform: scale(1.05); /* Efeito de crescimento sutil */
+    box-shadow: var(--shadow-glow);
+}
+
+/* Remove o efeito de sublinhado do nav-item padrão */
+.mobile-menu .mobile-cart-btn-styled::after {
+    display: none;
+}
