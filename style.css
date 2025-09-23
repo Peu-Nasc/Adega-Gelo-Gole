@@ -605,3 +605,30 @@ h2 {
 .mobile-menu .mobile-cart-btn-styled::after {
     display: none;
 }
+
+/* --- Estilo para o Contador do Carrinho --- */
+.cart-button {
+    position: relative; /* Necessário para posicionar o contador */
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #ff3b30; /* Um vermelho para chamar atenção */
+    color: var(--text-primary);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0); /* Começa escondido */
+}
+
+#cart-count.visible {
+    transform: scale(1); /* Torna visível com uma animação */
+}

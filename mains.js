@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA DO CARROSSEL ---
     const carousel = document.querySelector('.carousel-inner');
     if (carousel) {
-        // (O código do carrossel continua aqui, sem alterações)
         const items = document.querySelectorAll('.carousel-item');
         const indicators = document.querySelectorAll('.indicator');
         let currentIndex = 0;
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productCategory = card.dataset.category;
             const matchesSearch = productName.includes(searchTerm);
             const matchesFilter = activeFilter === 'todos' || productCategory === activeFilter;
-            card.style.display = (matchesSearch && matchesFilter) ? 'block' : 'none';
+            card.style.display = (matchesSearch && matchesFilter) ? 'flex' : 'none';
         });
     };
 
@@ -126,7 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         cartTotalSpan.textContent = total.toFixed(2);
-        cartCountSpan.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+        
+        // --- LÓGICA DO CONTADOR ATUALIZADA ---
+        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCountSpan.textContent = totalItems;
+        
+        if (totalItems > 0) {
+            cartCountSpan.classList.add('visible');
+        } else {
+            cartCountSpan.classList.remove('visible');
+        }
+        // --- FIM DA LÓGICA DO CONTADOR ---
+
         localStorage.setItem('adegaCart', JSON.stringify(cart));
     };
 
@@ -157,10 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = button.dataset.nomeProduto;
             const price = parseFloat(button.dataset.precoProduto);
             addToCart(name, price);
+
+            // Guarda o texto original
+            const originalText = button.textContent;
+            
+            // Muda o texto e desabilita para evitar cliques duplos
             button.textContent = 'Adicionado!';
+            button.disabled = true;
+            
+            // Depois de 1.5 segundos, volta ao normal
             setTimeout(() => {
-                button.textContent = button.classList.contains('btn-primary') ? 'Comprar Agora' : 'Adicionar ao Carrinho';
-            }, 1000);
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 650);
         });
     });
 

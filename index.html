@@ -19,6 +19,7 @@
                 <a href="#" id="cart-toggle-button" class="nav-item cart-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     <span>Sacola</span>
+                    <span id="cart-count">0</span>
                 </a>
             </nav>
             <button class="menu-toggle" aria-label="Abrir Menu">
@@ -53,17 +54,26 @@
                             </div>
                         </div>
                         <div class="offer-card carousel-item">
-                            <img src="https://via.placeholder.com/600x400/007AFF/fff?text=Combo+Gin+e+Energético" alt="Oferta de Combo Gin" class="offer-img">
+                            <img src="imagens/GELOSABORIZADO.jpg" alt="Oferta de Combo Gin" class="offer-img">
                             <div class="offer-info">
-                                <h3>Combo Gin Tanqueray + 4 Red Bull</h3>
-                                <p class="offer-price">De <del>R$ 149,90</del> por <strong>R$ 129,90</strong></p>
-                                <button class="btn btn-primary add-to-cart-btn" data-nome-produto="Combo Gin Tanqueray (Oferta)" data-preco-produto="129.90">Comprar Agora</button>
+                                <h3>Gelo Saborizado - Pack com 32Unid (ESCOLHA SEU SABOR)</h3>
+                                <p class="offer-price">De <del>R$ 127,90</del> por <strong>R$ 71,90</strong></p>
+                                <button class="btn btn-primary add-to-cart-btn" data-nome-produto="Combo Gelo saborizado - Pack 32unid (Oferta)" data-preco-produto="71.90">Comprar Agora</button>
+                            </div>
+                        </div>
+                        <div class="offer-card carousel-item active">
+                            <img src="imagens/heineken.jpg" alt="Oferta Kit Cerveja Heineken 330Ml Long Neck 24 Unidades" class="offer-img">
+                            <div class="offer-info">
+                                <h3>Kit Cerveja Heineken 330Ml (Long Neck) 24 Unidades</h3>
+                                <p class="offer-price">De <del>R$ 209,99</del> por <strong>R$ 159,99</strong></p>
+                                <button class="btn btn-primary add-to-cart-btn" data-nome-produto="Kit Cerveja Heineken (Long Neck) 24 Unidades" data-preco-produto="159.99">Comprar Agora</button>
                             </div>
                         </div>
                     </div>
                     <br>
                     <div class="carousel-indicators">
                         <span class="indicator active"></span>
+                        <span class="indicator"></span>
                         <span class="indicator"></span>
                     </div>
                 </div>
@@ -92,6 +102,12 @@
                         <p class="product-price">R$ 139,90</p>
                         <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Whisky Jack Daniels" data-preco-produto="139.90">Adicionar ao Carrinho</button>
                     </div>
+                    <div class="product-card" data-category="whisky">
+                        <img src="imagens/white horse whisky.jfif" alt="Whisky White Horse" class="product-img">
+                        <h3 class="product-name">Whisky White Horse</h3>
+                        <p class="product-price">R$ 71,99</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Whisky White Horse" data-preco-produto="71.99">Adicionar ao Carrinho</button>
+                    </div>
                     <div class="product-card" data-category="gin">
                         <img src="imagens/ginbeefeater.jpg" alt="Gin Beefeater" class="product-img">
                         <h3 class="product-name">Gin Beefeater Pink</h3>
@@ -100,15 +116,27 @@
                     </div>
                     <div class="product-card" data-category="cerveja">
                         <img src="imagens/heineken.jpg" alt="Cerveja Heineken 330ml" class="product-img">
-                        <h3 class="product-name">Cerveja Heineken 330ml (Long Neck)</h3>
-                        <p class="product-price">R$ 12,99</p>
-                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Cerveja Heineken 330ml" data-preco-produto="12.99">Adicionar ao Carrinho</button>
+                        <h3 class="product-name">Cerveja Heineken(Long Neck) - Pack 24 Unid</h3>
+                        <p class="product-price">R$ 159,99</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Cerveja Heineken(Long Neck) - Pack 24unid" data-preco-produto="159.99">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="cerveja">
+                        <img src="imagens/Heineken lata.jfif" alt="Cerveja Heineken Lata" class="product-img">
+                        <h3 class="product-name">Cerveja Heineken Lata - Pack 12 Unid</h3>
+                        <p class="product-price">R$ 64,99</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Cerveja Heineken - Pack 12Unid" data-preco-produto="64.99">Adicionar ao Carrinho</button>
                     </div>
                     <div class="product-card" data-category="energetico">
                         <img src="imagens/monsterenergy.jpg" alt="Energético Monster" class="product-img">
                         <h3 class="product-name">Energético Monster 473ml</h3>
                         <p class="product-price">R$ 8,90</p>
                         <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Energético Monster" data-preco-produto="8.90">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="cerveja">
+                        <img src="imagens/AMSTELlata.jfif" alt="Cerveja Amstel" class="product-img">
+                        <h3 class="product-name">Cerveja Amstel Lata 350ml Pack com 12un</h3>
+                        <p class="product-price">R$ 44,99</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Cerveja Amstel Lata - Pack com 12un" data-preco-produto="44.99">Adicionar ao Carrinho</button>
                     </div>
                     <div class="product-card" data-category="refrigerante">
                         <img src="imagens/cocacola2l.png" alt="Refrigerante Cola" class="product-img">
@@ -117,16 +145,28 @@
                         <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Coca-Cola 2 Litros" data-preco-produto="9.90">Adicionar ao Carrinho</button>
                     </div>
                     <div class="product-card" data-category="gelo">
-                        <img src="https://via.placeholder.com/300" alt="Gelo de Coco" class="product-img">
-                        <h3 class="product-name">Gelo Saborizado de Coco</h3>
-                        <p class="product-price">R$ 12,00</p>
-                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo Saborizado de Coco" data-preco-produto="12.00">Adicionar ao Carrinho</button>
+                        <img src="imagens/GELOSABORIZADO.jfif" alt="Gelo Saborizado" class="product-img">
+                        <h3 class="product-name">Gelo Saborizado - Unidade (ESCOLHA SEU SABOR)</h3>
+                        <p class="product-price">R$ 4,00</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo Saborizado (ESCOLHA SEU SABOR)" data-preco-produto="4.00">Adicionar ao Carrinho</button>
                     </div>
                     <div class="product-card" data-category="gelo">
-                        <img src="https://via.placeholder.com/300" alt="Gelo em Cubo" class="product-img">
-                        <h3 class="product-name">Gelo em Cubo 5kg</h3>
+                        <img src="imagens/Gelo_em_cubos.png" alt="Pacote do Gelo em Cubo" class="product-img">
+                        <h3 class="product-name">Gelo em Cubo 3,5kg</h3>
                         <p class="product-price">R$ 10,00</p>
-                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo em Cubo 5kg" data-preco-produto="10.00">Adicionar ao Carrinho</button>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo em Cubo 3,5kg" data-preco-produto="10.00">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="gelo">
+                        <img src="imagens/Gelo_em_cubos.png" alt="Pacote do Gelo em Cubo" class="product-img">
+                        <h3 class="product-name">Gelo em Cubo 10kg</h3>
+                        <p class="product-price">R$ 10,00</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo em Cubo 10kg" data-preco-produto="10.00">Adicionar ao Carrinho</button>
+                    </div>
+                    <div class="product-card" data-category="gelo">
+                        <img src="imagens/Gelo_em_cubos.png" alt="Pacote do Gelo em Cubo" class="product-img">
+                        <h3 class="product-name">Gelo em Cubo 20kg</h3>
+                        <p class="product-price">R$ 10,00</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-nome-produto="Gelo em Cubo 20kg" data-preco-produto="10.00">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </section>
